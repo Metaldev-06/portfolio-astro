@@ -13,11 +13,6 @@ const projects = await db.select().from(Projects);
     <Title title="Proyectos" />
 
     <article class="projects__card--container">
-      <!-- <ProjectCard
-        name="asdasdas"
-        img="https://res.cloudinary.com/du04fnqqz/image/upload/v1699566000/medium_marvel_app_d198d551f5_53f920c345.jpg"
-      /> -->
-
       {
         projects.map(({ name, url_image }) => (
           <ProjectCard name={name} img={url_image} />

@@ -23,8 +23,8 @@ const library = skills.filter((skill) => skill.stack === "library");
 
         <div class="card__container">
           {
-            frontend.map(({ name, url_image, index }) => (
-              <Atropos src={url_image} name={name} index={index} />
+            frontend.map(({ name, url_image }) => (
+              <Atropos src={url_image} name={name} />
             ))
           }
         </div>

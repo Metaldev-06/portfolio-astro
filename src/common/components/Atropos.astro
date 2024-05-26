@@ -2,10 +2,9 @@
 interface Props {
   src: string;
   name: string;
-  index: number;
 }
 
-const { src, name, index } = Astro.props;
+const { src, name } = Astro.props;
 ---
 
 <div class="atropos my-atropos" class:list={name}>
@@ -15,15 +14,16 @@ const { src, name, index } = Astro.props;
     <div class="atropos-rotate">
       <!-- inner container (required) -->
       <div class="atropos-inner">
-        <astro-greet data-class={name + "-" + index}>
+        <astro-greet data-class={name}>
           <div class="card__container">
             <img
               src={src}
-              loading="eager"
               alt={name}
               class={name}
               data-atropos-offset="2"
+              width="50"
             />
+            <h2>{name}</h2>
           </div>
         </astro-greet>
       </div>
@@ -38,19 +38,26 @@ const { src, name, index } = Astro.props;
     margin-bottom: 1rem;
 
     .atropos-inner {
-      background-color: red;
-      border-radius: 4px;
+      border-radius: 8px;
       background-color: rgba(62, 62, 62, 0.4);
+
       .card__container {
         color: var(--color-text);
-        cursor: pointer;
         display: flex;
         justify-content: center;
         align-items: center;
         padding: 1rem;
+        position: relative;
+
+        h2 {
+          position: absolute;
+          bottom: 0.5rem;
+          opacity: 0;
+          transition: all 0.3s ease-in-out;
+        }
 
         img {
-          width: 130px;
+          width: 120px;
           height: auto;
           object-fit: contain;
           transition: all 0.3s ease-in-out;
@@ -71,6 +78,10 @@ const { src, name, index } = Astro.props;
           img {
             scale: 1.05;
           }
+
+          h2 {
+            opacity: 1;
+          }
         }
       }
     }
@@ -90,9 +101,8 @@ const { src, name, index } = Astro.props;
 
       document.addEventListener("astro:page-load", () => {
         const myAtropos = Atropos({
-          el: `.${this.dataset.name}`,
+          el: `.${this.dataset.class}`,
           shadow: true,
-          shadowOffset: 300,
           highlight: true,
         });
       });

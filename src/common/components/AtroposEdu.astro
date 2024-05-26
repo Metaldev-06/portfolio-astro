@@ -1,0 +1,80 @@
+---
+interface Props {
+  src: string;
+  name: string;
+  className: string;
+}
+
+const { src, name, className } = Astro.props;
+---
+
+<div class="atropos my-atropos" class:list={className}>
+  <!-- scale container (required) -->
+  <div class="atropos-scale">
+    <!-- rotate container (required) -->
+    <div class="atropos-rotate">
+      <!-- inner container (required) -->
+      <div class="atropos-inner">
+        <astro-greet data-class={className}>
+          <div class="card__container">
+            <img
+              src={src}
+              alt={name}
+              class={className}
+              data-atropos-offset="2"
+              width="50"
+              title={name}
+            />
+          </div>
+        </astro-greet>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+  .card__container {
+    width: 100%;
+    height: 300px;
+    border-radius: 10px;
+    background-color: rgba(62, 62, 62, 0.4);
+    overflow: hidden;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: all 0.3s ease-in-out;
+    }
+
+    &:hover {
+      img {
+        scale: 1.05;
+      }
+    }
+  }
+
+  .onEnter {
+    scale: 1.1;
+  }
+</style>
+
+<script>
+  import Atropos from "atropos";
+
+  class AstroGreet extends HTMLElement {
+    constructor() {
+      super();
+
+      document.addEventListener("astro:page-load", () => {
+        const myAtropos = Atropos({
+          el: `.${this.dataset.className}`,
+          shadow: true,
+          highlight: true,
+        });
+      });
+    }
+  }
+
+  customElements.define("astro-greet", AstroGreet);
+</script>

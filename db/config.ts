@@ -32,7 +32,7 @@ const Certifications = defineTable({
     id: column.number({ primaryKey: true }),
     name: column.text(),
     url_image: column.text(),
-    class: column.text(),
+    className: column.text(),
   },
 });
 

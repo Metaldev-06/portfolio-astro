@@ -1,5 +1,11 @@
 ---
 import { Icon } from "astro-icon/components";
+import Skill3 from "../../common/components/Skill3.astro";
+import Skill4 from "../../common/components/Skill4.astro";
+import Skill5 from "../../common/components/Skill5.astro";
+import Skill6 from "../../common/components/Skill6.astro";
+import Skill7 from "../../common/components/Skill7.astro";
+import Skill8 from "../../common/components/Skill8.astro";
 ---
 
 <section class="hero__section">
@@ -11,12 +17,12 @@ import { Icon } from "astro-icon/components";
     <div class="skills__container">
       <img src="/img/skills/1.svg" alt="angular logo" width="50" />
       <img src="/img/skills/2.svg" alt="typescript logo" width="50" />
-      <img src="/img/skills/3.svg" alt="sass logo" width="50" />
-      <img src="/img/skills/4.svg" alt="nodejs logo" width="50" />
-      <img src="/img/skills/5.svg" alt="express logo" width="50" />
-      <img src="/img/skills/6.svg" alt="nestjs logo" width="50" />
-      <img src="/img/skills/7.svg" alt="strapi logo" width="50" />
-      <img src="/img/skills/8.svg" alt="deno logo" width="50" />
+      <Skill3 />
+      <Skill4 />
+      <Skill5 />
+      <Skill6 />
+      <Skill7 />
+      <Skill8 />
       <img src="/img/skills/9.svg" alt="mongo logo" width="50" />
     </div>
   </article>
@@ -56,6 +62,7 @@ import { Icon } from "astro-icon/components";
   .hero__section {
     width: 95%;
     height: 100vh;
+    margin: 0 auto;
     /* background: var(--background-hero); */
     background-size: cover;
     background-position: center;
@@ -81,10 +88,10 @@ import { Icon } from "astro-icon/components";
     display: flex;
     gap: 1rem;
     flex-wrap: wrap;
-    color: var(--hero-text-color);
+    color: var(--color-text);
 
-    & > img {
-      color: var(--hero-text-color);
+    div {
+      width: 50px;
     }
   }
 

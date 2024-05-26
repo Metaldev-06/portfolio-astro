@@ -1,5 +1,6 @@
 ---
 import ButtonTheme from "./ButtonTheme.astro";
+import Logo from "./Logo.astro";
 
 const { pathname } = Astro.url;
 const normalizedPathName =
@@ -11,7 +12,7 @@ const normalizedPathName =
 <header class="header__container" transition:persist>
   <div class="header">
     <picture>
-      <img src="/img/logo.svg" alt="logo" width="50" />
+      <Logo />
     </picture>
 
     <nav>
@@ -27,9 +28,9 @@ const normalizedPathName =
         href="/education"
         class={normalizedPathName === "/education" ? "active" : ""}>EDUCACIÓN</a
       >
-      <a href="/blog" class={normalizedPathName === "/blog" ? "active" : ""}
+      <!-- <a href="/blog" class={normalizedPathName === "/blog" ? "active" : ""}
         >BLOG</a
-      >
+      > -->
     </nav>
 
     <ButtonTheme />

@@ -1,7 +1,58 @@
 ---
+import { db, Certifications } from "astro:db";
+import AtroposEdu from "../common/components/AtroposEdu.astro";
+import Title from "../common/components/Title.astro";
 import Layout from "../layouts/Layout.astro";
+
+const education = await db.select().from(Certifications);
 ---
 
 <Layout title="Education">
-  <h2>Education</h2>
+  <section class="education__section">
+    <Title title="Educación" />
+
+    <article class="education__container">
+      <h2>Certificaciones</h2>
+
+      <div class="card__container">
+        {
+          education.map(({ name, url_image, className }) => (
+            <AtroposEdu src={url_image} name={name} className={className} />
+          ))
+        }
+      </div>
+    </article>
+  </section>
 </Layout>
+
+<style>
+  .education__section {
+    width: var(--full-width);
+    max-width: var(--max-width);
+    margin: 6rem auto;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    justify-content: center;
+    align-items: center;
+
+    .education__container {
+      width: 100%;
+      text-align: left;
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+
+      .card__container {
+        width: 100%;
+        display: grid;
+        grid-auto-rows: 300px;
+        grid-template-columns: repeat(
+          auto-fill,
+          minmax(clamp(200px, 100%, 400px), 1fr)
+        );
+        gap: 1rem;
+      }
+    }
+  }
+</style>
