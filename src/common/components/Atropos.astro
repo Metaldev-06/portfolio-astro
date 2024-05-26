@@ -1,0 +1,103 @@
+---
+interface Props {
+  src: string;
+  name: string;
+  index: number;
+}
+
+const { src, name, index } = Astro.props;
+---
+
+<div class="atropos my-atropos" class:list={name}>
+  <!-- scale container (required) -->
+  <div class="atropos-scale">
+    <!-- rotate container (required) -->
+    <div class="atropos-rotate">
+      <!-- inner container (required) -->
+      <div class="atropos-inner">
+        <astro-greet data-class={name + "-" + index}>
+          <div class="card__container">
+            <img
+              src={src}
+              loading="eager"
+              alt={name}
+              class={name}
+              data-atropos-offset="2"
+            />
+          </div>
+        </astro-greet>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+  .my-atropos {
+    width: 200px;
+    height: 200px;
+    margin-bottom: 1rem;
+
+    .atropos-inner {
+      background-color: red;
+      border-radius: 4px;
+      background-color: rgba(62, 62, 62, 0.4);
+      .card__container {
+        color: var(--color-text);
+        cursor: pointer;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 1rem;
+
+        img {
+          width: 130px;
+          height: auto;
+          object-fit: contain;
+          transition: all 0.3s ease-in-out;
+          aspect-ratio: 4 / 6;
+        }
+
+        .text__container {
+          display: flex;
+          flex-direction: column;
+          gap: 0.5rem;
+          font-size: 0.8rem;
+
+          .name {
+          }
+        }
+
+        &:hover {
+          img {
+            scale: 1.05;
+          }
+        }
+      }
+    }
+  }
+
+  .onEnter {
+    scale: 1.1;
+  }
+</style>
+
+<script>
+  import Atropos from "atropos";
+
+  class AstroGreet extends HTMLElement {
+    constructor() {
+      super();
+
+      document.addEventListener("astro:page-load", () => {
+        const myAtropos = Atropos({
+          el: `.${this.dataset.name}`,
+          shadow: true,
+          shadowOffset: 300,
+          highlight: true,
+        });
+      });
+    }
+  }
+
+  customElements.define("astro-greet", AstroGreet);
+</script>

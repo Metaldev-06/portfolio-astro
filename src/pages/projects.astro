@@ -1,7 +1,11 @@
 ---
+import { db, Projects } from "astro:db";
+
 import ProjectCard from "../common/components/ProjectCard.astro";
 import Title from "../common/components/Title.astro";
 import Layout from "../layouts/Layout.astro";
+
+const projects = await db.select().from(Projects);
 ---
 
 <Layout title="Metaldev - Web Developer Jr.">
@@ -9,22 +13,16 @@ import Layout from "../layouts/Layout.astro";
     <Title title="Proyectos" />
 
     <article class="projects__card--container">
-      <ProjectCard
+      <!-- <ProjectCard
         name="asdasdas"
         img="https://res.cloudinary.com/du04fnqqz/image/upload/v1699566000/medium_marvel_app_d198d551f5_53f920c345.jpg"
-      />
-      <ProjectCard
-        name="dasdasd"
-        img="https://res.cloudinary.com/du04fnqqz/image/upload/v1699566000/medium_marvel_app_d198d551f5_53f920c345.jpg"
-      />
-      <ProjectCard
-        name="sdasdasdasd"
-        img="https://res.cloudinary.com/du04fnqqz/image/upload/v1699566000/medium_marvel_app_d198d551f5_53f920c345.jpg"
-      />
-      <ProjectCard
-        name="asdasd"
-        img="https://res.cloudinary.com/du04fnqqz/image/upload/v1699566000/medium_marvel_app_d198d551f5_53f920c345.jpg"
-      />
+      /> -->
+
+      {
+        projects.map(({ name, url_image }) => (
+          <ProjectCard name={name} img={url_image} />
+        ))
+      }
     </article>
   </section>
 </Layout>

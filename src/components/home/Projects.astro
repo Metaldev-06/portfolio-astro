@@ -1,130 +1,29 @@
 ---
+import { db, Projects, like, eq } from "astro:db";
 import Title from "../../common/components/Title.astro";
+
+const projects = await db
+  .select()
+  .from(Projects)
+  .where(eq(Projects.important, true));
 ---
 
 <section class="project__section">
   <Title title="Proyectos" />
 
   <article class="project__container">
-    <div class="card">
-      <img
-        src="/img/medium_marvel_app_d198d551f5_53f920c345.jpg"
-        alt="Marvel App Proyecto"
-      />
+    {
+      projects.map(({ primary, name, description, url_image }) => (
+        <div class="card" style={primary ? "grid-column: span 2" : ""}>
+          <img src={url_image} alt={name} />
 
-      <div class="text__container">
-        <h3>Marvelapp</h3>
-        <p>
-          Es una página web para buscar cómics, personajes y más información
-          sobre Marvel.
-        </p>
-      </div>
-    </div>
-
-    <div class="card" style="grid-column: span 2">
-      <img
-        src="/img/medium_tango_viajes_38251e36e3_8559ed1835.jpg"
-        alt="Tango Viajes"
-      />
-
-      <div class="text__container">
-        <h3>Marvelapp</h3>
-        <p>
-          Es una página web para buscar cómics, personajes y más información
-          sobre Marvel.
-        </p>
-      </div>
-    </div>
-
-    <div class="card">
-      <img
-        src="/img/medium_juego_ahorcado_715817aab2_76ed799ed5.jpg"
-        alt="Marvel App Proyecto"
-      />
-
-      <div class="text__container">
-        <h3>Marvelapp</h3>
-        <p>
-          Es una página web para buscar cómics, personajes y más información
-          sobre Marvel.
-        </p>
-      </div>
-    </div>
-
-    <div class="card" style="grid-column: span 2">
-      <img
-        src="/img/medium_giftify_v2_eabe435ea6_d489929737.jpg"
-        alt="Marvel App Proyecto"
-      />
-
-      <div class="text__container">
-        <h3>Marvelapp</h3>
-        <p>
-          Es una página web para buscar cómics, personajes y más información
-          sobre Marvel.
-        </p>
-      </div>
-    </div>
-
-    <div class="card" style="grid-column: span 2">
-      <img
-        src="/img/medium_300shots_so_1_747abe463a_f4d1a02ea4.jpg"
-        alt="Marvel App Proyecto"
-      />
-
-      <div class="text__container">
-        <h3>Marvelapp</h3>
-        <p>
-          Es una página web para buscar cómics, personajes y más información
-          sobre Marvel.
-        </p>
-      </div>
-    </div>
-
-    <div class="card" style="grid-column: span 2">
-      <img
-        src="/img/medium_209shots_so_1_52a71d4f0b_6f91396d56.jpg"
-        alt="Marvel App Proyecto"
-      />
-
-      <div class="text__container">
-        <h3>Marvelapp</h3>
-        <p>
-          Es una página web para buscar cómics, personajes y más información
-          sobre Marvel.
-        </p>
-      </div>
-    </div>
-
-    <div class="card">
-      <img
-        src="/img/medium_encriptador_alura_622f020dd1_8993930b17.jpg"
-        alt="Marvel App Proyecto"
-      />
-
-      <div class="text__container">
-        <h3>Marvelapp</h3>
-        <p>
-          Es una página web para buscar cómics, personajes y más información
-          sobre Marvel.
-        </p>
-      </div>
-    </div>
-
-    <div class="card">
-      <img
-        src="/img/medium_cande_fest_8fb06d4c19_5c973326ca.jpg"
-        alt="Marvel App Proyecto"
-      />
-
-      <div class="text__container">
-        <h3>Marvelapp</h3>
-        <p>
-          Es una página web para buscar cómics, personajes y más información
-          sobre Marvel.
-        </p>
-      </div>
-    </div>
+          <div class="text__container">
+            <h3>{name}</h3>
+            <p>{description}</p>
+          </div>
+        </div>
+      ))
+    }
   </article>
 </section>
 

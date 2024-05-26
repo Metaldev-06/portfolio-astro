@@ -10,8 +10,8 @@ const Projects = defineTable({
     important: column.boolean(),
     primary: column.boolean(),
     technologys: column.json(),
-    server_status: column.boolean(),
-    client_status: column.boolean(),
+    server_status: column.boolean({ optional: true }),
+    client_status: column.boolean({ optional: true }),
     url: column.text(),
     url_image: column.text(),
     reviews: column.json(),
@@ -27,6 +27,15 @@ const Skills = defineTable({
   },
 });
 
+const Certifications = defineTable({
+  columns: {
+    id: column.number({ primaryKey: true }),
+    name: column.text(),
+    url_image: column.text(),
+    class: column.text(),
+  },
+});
+
 export default defineDb({
-  tables: { Projects, Skills },
+  tables: { Projects, Skills, Certifications },
 });
