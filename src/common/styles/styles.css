@@ -11,6 +11,7 @@
   --slider-input-bg: #8758ff;
   --color-white: #fff;
   --color-complementary: #8758ff;
+  --box-shadow: rgba(66, 66, 66, 0.2);
 
   --max-width: 1400px;
   --full-width: 95%;
@@ -25,8 +26,17 @@
   text-decoration: none;
 }
 
-html {
-  /* scroll-behavior: smooth; */
+body::-webkit-scrollbar {
+  width: 5px;
+}
+
+body::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+body::-webkit-scrollbar-thumb {
+  background: var(--hover-nav-color);
+  border-radius: 20px;
 }
 
 body {

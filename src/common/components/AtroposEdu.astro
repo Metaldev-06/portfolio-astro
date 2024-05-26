@@ -39,6 +39,7 @@ const { src, name, className } = Astro.props;
     border-radius: 10px;
     background-color: rgba(62, 62, 62, 0.4);
     overflow: hidden;
+    box-shadow: 0 20px 20px var(--box-shadow);
 
     img {
       width: 100%;
@@ -46,27 +47,22 @@ const { src, name, className } = Astro.props;
       object-fit: cover;
       transition: all 0.3s ease-in-out;
     }
-
-    &:hover {
-      img {
-        scale: 1.05;
-      }
-    }
-  }
-
-  .onEnter {
-    scale: 1.1;
   }
 </style>
 
 <script>
   import Atropos from "atropos";
 
+  console.log("Holaaaaa1");
+
   class AstroGreet extends HTMLElement {
     constructor() {
       super();
 
+      console.log("Holaaaaaaa2");
+
       document.addEventListener("astro:page-load", () => {
+        console.log("Holaaaaa3");
         const myAtropos = Atropos({
           el: `.${this.dataset.className}`,
           shadow: true,
@@ -76,5 +72,5 @@ const { src, name, className } = Astro.props;
     }
   }
 
-  customElements.define("astro-greet", AstroGreet);
+  customElements.define("astro-greet-2", AstroGreet);
 </script>
