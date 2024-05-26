@@ -1,0 +1,51 @@
+---
+import ProjectCard from "../common/components/ProjectCard.astro";
+import Title from "../common/components/Title.astro";
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout title="Metaldev - Web Developer Jr.">
+  <section class="project__section">
+    <Title title="Proyectos" />
+
+    <article class="projects__card--container">
+      <ProjectCard
+        name="asdasdas"
+        img="https://res.cloudinary.com/du04fnqqz/image/upload/v1699566000/medium_marvel_app_d198d551f5_53f920c345.jpg"
+      />
+      <ProjectCard
+        name="dasdasd"
+        img="https://res.cloudinary.com/du04fnqqz/image/upload/v1699566000/medium_marvel_app_d198d551f5_53f920c345.jpg"
+      />
+      <ProjectCard
+        name="sdasdasdasd"
+        img="https://res.cloudinary.com/du04fnqqz/image/upload/v1699566000/medium_marvel_app_d198d551f5_53f920c345.jpg"
+      />
+      <ProjectCard
+        name="asdasd"
+        img="https://res.cloudinary.com/du04fnqqz/image/upload/v1699566000/medium_marvel_app_d198d551f5_53f920c345.jpg"
+      />
+    </article>
+  </section>
+</Layout>
+
+<style>
+  .project__section {
+    width: var(--full-width);
+    max-width: var(--max-width);
+    margin: 6rem auto;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    justify-content: center;
+    align-items: center;
+
+    .projects__card--container {
+      width: 100%;
+      display: grid;
+      grid-auto-rows: 300px;
+      grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+      gap: 1rem;
+    }
+  }
+</style>

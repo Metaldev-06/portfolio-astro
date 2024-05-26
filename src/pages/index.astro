@@ -1,0 +1,26 @@
+---
+import Layout from "../layouts/Layout.astro";
+import AboutMe from "../components/home/AboutMe.astro";
+import Hero from "../components/home/Hero.astro";
+import Projects from "../components/home/Projects.astro";
+import Posts from "../components/home/Posts.astro";
+---
+
+<Layout title="Metaldev - Web Developer Jr.">
+  <main>
+    <Hero />
+    <AboutMe />
+    <Projects />
+    <Posts />
+  </main>
+</Layout>
+
+<style>
+  main {
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    gap: 10rem;
+  }
+</style>

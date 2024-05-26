@@ -1,0 +1,119 @@
+---
+import { ViewTransitions } from "astro:transitions";
+
+import { SEO } from "astro-seo";
+
+import "../common/styles/styles.css";
+import { seoAstro } from "../common/seo/seo.ts";
+import Header from "../common/components/Header.astro";
+import Footer from "../common/components/Footer.astro";
+
+// interface Props {
+//   title: string;
+// }
+
+// const { title } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+
+    <SEO
+      title={seoAstro.title}
+      description={seoAstro.description}
+      openGraph={{
+        basic: {
+          title: `${seoAstro.title}`,
+          type: "A type.",
+          image: `${seoAstro.ogImage}`,
+        },
+      }}
+      twitter={{
+        creator: `${seoAstro.twitterCreator}`,
+      }}
+      extend={{
+        // extending the default link tags
+        link: [
+          { rel: "icon", href: "/img/favicon.ico" },
+          { rel: "apple-touch-icon", href: "/img/apple-touch-icon.png" },
+          {
+            rel: "apple-touch-icon",
+            sizes: "72x72",
+            href: "/img/apple-touch-icon-72x72.png",
+          },
+          {
+            rel: "apple-touch-icon",
+            sizes: "76x76",
+            href: "/img/apple-touch-icon-76x76.png",
+          },
+          {
+            rel: "apple-touch-icon",
+            sizes: "114x114",
+            href: "/img/apple-touch-icon-114x114.png",
+          },
+          {
+            rel: "apple-touch-icon",
+            sizes: "120x120",
+            href: "/img/apple-touch-icon-120x120.png",
+          },
+          {
+            rel: "apple-touch-icon",
+            sizes: "152x152",
+            href: "/img/apple-touch-icon-152x152.png",
+          },
+          {
+            rel: "apple-touch-icon",
+            sizes: "180x180",
+            href: "/img/apple-touch-icon-180x180.png",
+          },
+        ],
+        // extending the default meta tags
+        meta: [
+          {
+            name: "twitter:image",
+            content: `${seoAstro.ogImage}`,
+          },
+          { name: "twitter:title", content: `${seoAstro.title}` },
+          { name: "twitter:description", content: `${seoAstro.description}` },
+        ],
+      }}
+    />
+
+    <link
+      rel="preconnect"
+      href="/fonts/Inter-Regular.woff2"
+      crossorigin
+      type="font/woff2"
+    />
+    <link
+      rel="preconnect"
+      href="/fonts/Inter-Medium.woff2"
+      crossorigin
+      type="font/woff2"
+    />
+    <link
+      rel="preconnect"
+      href="/fonts/Inter-Bold.woff2"
+      crossorigin
+      type="font/woff2"
+    />
+    <meta name="generator" content={Astro.generator} />
+    <ViewTransitions />
+  </head>
+  <body>
+    <Header />
+    <slot />
+    <Footer />
+    <style is:global>
+      body {
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+      }
+    </style>
+  </body>
+</html>

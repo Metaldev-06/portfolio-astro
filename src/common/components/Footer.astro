@@ -1,0 +1,89 @@
+---
+import { Icon } from "astro-icon/components";
+
+const date = new Date().getFullYear();
+---
+
+<footer class="footer__container">
+  <article class="footer__info">
+    <div class="social__container">
+      <a
+        href="https://github.com/Metaldev-06/"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <Icon name="github" size={24} />
+      </a>
+
+      <a
+        href="https://www.linkedin.com/in/fernandodiaz62/"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <Icon name="linkedin" size={24} />
+      </a>
+
+      <a
+        href="https://twitter.com/MetalDev_06"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <Icon name="twitter" size={24} />
+      </a>
+    </div>
+
+    <div class="copyright">&copy; Diseñado por MetalDev - {date}</div>
+
+    <div class="contact"><a href="/contact">Contacto</a></div>
+  </article>
+</footer>
+
+<style>
+  .footer__container {
+    width: 100%;
+    height: 64px;
+    background-color: var(--card-article-color);
+
+    .footer__info {
+      width: 95%;
+      max-width: var(--max-width);
+      margin: 0 auto;
+      height: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-inline: 0.5rem;
+
+      .social__container {
+        display: flex;
+        gap: 0.5rem;
+        a {
+          opacity: 0.8;
+          color: var(--color-text);
+          transition: opacity 0.3s ease-in-out;
+
+          &:hover {
+            opacity: 1;
+          }
+        }
+      }
+
+      .copyright {
+        opacity: 0.8;
+      }
+
+      .contact {
+        a {
+          color: var(--color-text);
+          opacity: 0.8;
+          transition: opacity 0.3s ease-in-out;
+
+          &:hover {
+            text-decoration: solid underline;
+            opacity: 1;
+          }
+        }
+      }
+    }
+  }
+</style>

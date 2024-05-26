@@ -1,0 +1,124 @@
+---
+import { Icon } from "astro-icon/components";
+---
+
+<section class="aboutMe__section">
+  <h2>Acerca de mí</h2>
+
+  <article class="aboutMe__container">
+    <div class="aboutMe__info">
+      <picture>
+        <img src="/img/me-image.png" alt="Foto de Perfil" width="300" />
+      </picture>
+
+      <div class="text__container">
+        <p>
+          ¡Hola a todos! Mi nombre es <b>Fernando Díaz</b> y me complace darle la
+          bienvenida a mi mundo digital. Soy un apasionado desarrollador y
+          <b> Técnico Superior en Programación </b>
+
+          <p>
+            A mis <b> 24 años </b>, he encontrado mi verdadera pasión en el
+            mundo del desarrollo web front-end y he estado explorando los
+            matices de este emocionante campo durante estos últimos <b>
+              4 años
+            </b>.
+          </p>
+
+          <p>
+            Estoy emocionado de compartir mi experiencia y habilidades contigo a
+            medida que exploramos juntos el emocionante mundo del desarrollo
+            web. Espero poder colaborar en proyectos increíbles y crear
+            experiencias digitales inolvidables. ¡Gracias por visitar mi espacio
+            en línea y espero poder conectarme con ustedes pronto!
+          </p>
+        </p>
+      </div>
+    </div>
+
+    <div class="info__services">
+      <div class="services__card">
+        <Icon name="computer" size={80} />
+        <p>Consultoría y Asesoramiento Técnico</p>
+      </div>
+      <div class="services__card">
+        <Icon name="pencil" size={80} />
+        <p>Diseño y Desarrollo de Sitios Web Responsivos</p>
+      </div>
+      <div class="services__card">
+        <Icon name="web" size={80} />
+        <p>Optimización de Velocidad y Rendimiento</p>
+      </div>
+    </div>
+  </article>
+</section>
+
+<style>
+  .aboutMe__section {
+    width: var(--full-width);
+    max-width: var(--max-width);
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    justify-content: center;
+    align-items: center;
+
+    & > h2 {
+      text-align: center;
+    }
+  }
+
+  .aboutMe__container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .aboutMe__info {
+    width: 100%;
+    background-color: var(--card-article-color);
+    border-radius: 8px;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    gap: 1rem;
+    padding: 2rem;
+    & > picture > img {
+      border-radius: 50%;
+      aspect-ratio: 1 / 1;
+    }
+
+    & > .text__container {
+      width: 100%;
+      max-width: 600px;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+
+      & > p {
+        text-wrap: pretty;
+      }
+    }
+  }
+
+  .info__services {
+    display: flex;
+    gap: 1rem;
+
+    & > .services__card {
+      width: 100%;
+      max-width: 456px;
+      height: 170px;
+      overflow: 1;
+      background-color: var(--card-article-color);
+      padding: 1rem;
+      border-radius: 8px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      color: var(--text-color);
+    }
+  }
+</style>

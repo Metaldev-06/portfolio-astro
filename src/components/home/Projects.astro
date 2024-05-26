@@ -1,0 +1,213 @@
+---
+import Title from "../../common/components/Title.astro";
+---
+
+<section class="project__section">
+  <Title title="Proyectos" />
+
+  <article class="project__container">
+    <div class="card">
+      <img
+        src="/img/medium_marvel_app_d198d551f5_53f920c345.jpg"
+        alt="Marvel App Proyecto"
+      />
+
+      <div class="text__container">
+        <h3>Marvelapp</h3>
+        <p>
+          Es una página web para buscar cómics, personajes y más información
+          sobre Marvel.
+        </p>
+      </div>
+    </div>
+
+    <div class="card" style="grid-column: span 2">
+      <img
+        src="/img/medium_tango_viajes_38251e36e3_8559ed1835.jpg"
+        alt="Tango Viajes"
+      />
+
+      <div class="text__container">
+        <h3>Marvelapp</h3>
+        <p>
+          Es una página web para buscar cómics, personajes y más información
+          sobre Marvel.
+        </p>
+      </div>
+    </div>
+
+    <div class="card">
+      <img
+        src="/img/medium_juego_ahorcado_715817aab2_76ed799ed5.jpg"
+        alt="Marvel App Proyecto"
+      />
+
+      <div class="text__container">
+        <h3>Marvelapp</h3>
+        <p>
+          Es una página web para buscar cómics, personajes y más información
+          sobre Marvel.
+        </p>
+      </div>
+    </div>
+
+    <div class="card" style="grid-column: span 2">
+      <img
+        src="/img/medium_giftify_v2_eabe435ea6_d489929737.jpg"
+        alt="Marvel App Proyecto"
+      />
+
+      <div class="text__container">
+        <h3>Marvelapp</h3>
+        <p>
+          Es una página web para buscar cómics, personajes y más información
+          sobre Marvel.
+        </p>
+      </div>
+    </div>
+
+    <div class="card" style="grid-column: span 2">
+      <img
+        src="/img/medium_300shots_so_1_747abe463a_f4d1a02ea4.jpg"
+        alt="Marvel App Proyecto"
+      />
+
+      <div class="text__container">
+        <h3>Marvelapp</h3>
+        <p>
+          Es una página web para buscar cómics, personajes y más información
+          sobre Marvel.
+        </p>
+      </div>
+    </div>
+
+    <div class="card" style="grid-column: span 2">
+      <img
+        src="/img/medium_209shots_so_1_52a71d4f0b_6f91396d56.jpg"
+        alt="Marvel App Proyecto"
+      />
+
+      <div class="text__container">
+        <h3>Marvelapp</h3>
+        <p>
+          Es una página web para buscar cómics, personajes y más información
+          sobre Marvel.
+        </p>
+      </div>
+    </div>
+
+    <div class="card">
+      <img
+        src="/img/medium_encriptador_alura_622f020dd1_8993930b17.jpg"
+        alt="Marvel App Proyecto"
+      />
+
+      <div class="text__container">
+        <h3>Marvelapp</h3>
+        <p>
+          Es una página web para buscar cómics, personajes y más información
+          sobre Marvel.
+        </p>
+      </div>
+    </div>
+
+    <div class="card">
+      <img
+        src="/img/medium_cande_fest_8fb06d4c19_5c973326ca.jpg"
+        alt="Marvel App Proyecto"
+      />
+
+      <div class="text__container">
+        <h3>Marvelapp</h3>
+        <p>
+          Es una página web para buscar cómics, personajes y más información
+          sobre Marvel.
+        </p>
+      </div>
+    </div>
+  </article>
+</section>
+
+<style>
+  .project__section {
+    width: var(--full-width);
+    max-width: var(--max-width);
+    /* min-height: 100vh; */
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .project__container {
+    width: 100%;
+    display: grid;
+    grid-auto-rows: 300px;
+    grid-template-columns: repeat(auto-fill, minmax(20rem, 1fr));
+    grid-auto-flow: dense;
+    gap: 1rem;
+  }
+
+  .card {
+    width: 100%;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    display: flex;
+    justify-content: flex-end;
+    flex-direction: column;
+    gap: 0.5rem;
+    position: relative;
+    overflow: hidden;
+
+    & > img {
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      z-index: -1;
+      object-fit: cover;
+      transition: transform 0.3s ease-in-out;
+    }
+  }
+
+  .card:hover {
+    background: rgba(0, 0, 0, 0.6);
+
+    & > .text__container > p {
+      display: block;
+    }
+  }
+
+  .card:hover img {
+    transform: scale(1.1);
+  }
+
+  .text__container {
+    width: 100%;
+    color: var(--color-white);
+    background: rgb(0, 0, 0);
+    background: -moz-linear-gradient(
+      0deg,
+      rgba(0, 0, 0, 1) 0%,
+      rgba(254, 49, 70, 0) 100%
+    );
+    background: -webkit-linear-gradient(
+      0deg,
+      rgba(0, 0, 0, 1) 0%,
+      rgba(254, 49, 70, 0) 100%
+    );
+    background: linear-gradient(
+      0deg,
+      rgba(0, 0, 0, 1) 0%,
+      rgba(254, 49, 70, 0) 100%
+    );
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#000000", endColorstr="#fe3146", GradientType=1);
+    padding: 1rem;
+
+    & > p {
+      display: none;
+    }
+  }
+</style>
