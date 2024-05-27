@@ -1,9 +1,9 @@
 ---
 import { db, Skills as SkillsDb } from "astro:db";
 
-import Title from "../common/components/Title.astro";
-import Layout from "../layouts/Layout.astro";
-import Atropos from "../common/components/Atropos.astro";
+import Atropos from "@common/components/Atropos.astro";
+import Title from "@common/components/Title.astro";
+import Layout from "@layouts/Layout.astro";
 
 const skills = await db.select().from(SkillsDb);
 

@@ -1,6 +1,7 @@
 ---
 import { db, eq, Projects as ProjectsDB } from "astro:db";
-import Title from "../../common/components/Title.astro";
+
+import Title from "@common/components/Title.astro";
 
 const projects = await db
   .select()

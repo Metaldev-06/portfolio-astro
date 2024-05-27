@@ -1,8 +1,9 @@
 ---
 import { db, Certifications } from "astro:db";
-import AtroposEdu from "../common/components/AtroposEdu.astro";
-import Title from "../common/components/Title.astro";
-import Layout from "../layouts/Layout.astro";
+
+import AtroposEdu from "@common/components/AtroposEdu.astro";
+import Title from "@common/components/Title.astro";
+import Layout from "@layouts/Layout.astro";
 
 const education = await db.select().from(Certifications);
 ---
