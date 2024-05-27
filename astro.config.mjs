@@ -1,4 +1,5 @@
 import { defineConfig } from "astro/config";
+import vercel from "@astrojs/vercel/serverless";
 import icon from "astro-icon";
 
 import db from "@astrojs/db";
@@ -7,4 +8,9 @@ import db from "@astrojs/db";
 export default defineConfig({
   integrations: [icon(), db()],
   output: "hybrid",
+  adapter: vercel({
+    webAnalytics: {
+      enabled: true,
+    },
+  }),
 });
