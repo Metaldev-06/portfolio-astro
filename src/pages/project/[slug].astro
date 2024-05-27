@@ -4,7 +4,20 @@ import Layout from "../../layouts/Layout.astro";
 import { Projects } from "astro:db";
 import type { Project } from "../../common/interfaces/project.interfaces";
 
-export const prerender = false;
+// export const prerender = false;
+
+export function getStaticPaths() {
+  return [
+    { params: { slug: "delidrinks" } },
+    { params: { slug: "delatinos" } },
+    { params: { slug: "tango-viajes" } },
+    { params: { slug: "giftify" } },
+    { params: { slug: "ypf" } },
+    { params: { slug: "blog" } },
+    { params: { slug: "juego-ahorcado" } },
+    { params: { slug: "encriptador-de-texto" } },
+  ];
+}
 
 const { pathname } = Astro.url;
 const normalizedPathName = pathname.split("/")[2];
@@ -16,9 +29,9 @@ const projects = await db
 
 const project = projects[0] as Project;
 
-if (project === undefined) {
-  return Astro.redirect("/404");
-}
+// if (project === undefined) {
+//   return Astro.redirect("/404");
+// }
 ---
 
 <Layout title="Project">
