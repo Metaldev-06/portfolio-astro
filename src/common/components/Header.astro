@@ -84,8 +84,8 @@ const normalizedPathName =
   }
 </style>
 
-<script>
-  const $ = (selector: string) => document.querySelector(selector);
+<script is:inline>
+  const $ = (selector) => document.querySelector(selector);
 
   const header = $(".header__container");
 
@@ -110,7 +110,7 @@ const normalizedPathName =
   const navLinks = document.querySelectorAll("nav a");
 
   document.addEventListener("astro:after-swap", () => {
-    navLinks.forEach((link: HTMLAnchorElement | any) => {
+    navLinks.forEach((link) => {
       link.classList.remove("active");
 
       const currentPath = window.location.pathname.slice(1);

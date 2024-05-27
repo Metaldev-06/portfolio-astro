@@ -128,7 +128,7 @@
   }
 </style>
 
-<script>
+<script is:inline>
   // Obtener el input de cambio de tema
   const themeToggle = document.querySelector(
     '.theme-switch input[type="checkbox"]'
@@ -150,6 +150,8 @@
     const newTheme = themeToggle.checked ? "dark" : "light";
     document.documentElement.setAttribute("data-theme", newTheme);
     localStorage.setItem("theme", newTheme);
+
+    window.dispatchEvent(new Event("themeChanged"));
   }
 
   // Agregar detectores de eventos

@@ -103,7 +103,23 @@ import SmokeBackground from "../common/components/SmokeBackground.astro";
     />
     <meta name="generator" content={Astro.generator} />
     <ViewTransitions />
+    <script is:inline>
+      window.getThemePreference = () => {
+        const localItem =
+          typeof localStorage !== "undefined" && localStorage.getItem("theme");
+
+        if (localItem) return localItem;
+
+        return window.matchMedia("(prefers-color-scheme: dark)").matches
+          ? "dark"
+          : "light";
+      };
+
+      const isDark = getThemePreference() === "dark";
+      document.documentElement.classList.toggle("dark", isDark);
+    </script>
   </head>
+
   <body>
     <SmokeBackground />
     <!-- <div class="background"></div> -->
