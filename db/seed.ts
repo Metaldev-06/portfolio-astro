@@ -258,12 +258,13 @@ export default async function seed() {
 
   await db.insert(Projects).values([
     {
-      name: "delidrinks - ecommerce",
+      name: "Delidrinks - Ecommerce",
+      slug: "delidrinks",
       description:
         "Es un proyecto que realice para la práctica profesional de Teclab, tenía que buscar un emprendimiento y resolver sus necesidades",
       important: true,
       primary: true,
-      technologys: [
+      technologies: [
         "html",
         "sass",
         "primeng",
@@ -286,12 +287,13 @@ export default async function seed() {
       reviews: [],
     },
     {
-      name: "delatinos - ecommerce",
+      name: "Delatinos - Ecommerce",
+      slug: "delatinos",
       description:
         "Proyecto realizado para NoCountry en conjunto de un gran equipo, la realización de este ecommerce para gente latina en el exterior",
       important: true,
       primary: true,
-      technologys: [
+      technologies: [
         "html",
         "scss",
         "keen-slider",
@@ -313,12 +315,13 @@ export default async function seed() {
       reviews: [],
     },
     {
-      name: "tango viajes - ecommerce",
+      name: "Tango Viajes - Ecommerce",
+      slug: "tango-viajes",
       description:
         "Se trata de un proyecto 'noCountry', en el que trabajamos con un equipo en un entorno real para adquirir experiencia laboral. ",
       important: true,
       primary: false,
-      technologys: [
+      technologies: [
         "html",
         "css",
         "primeng",
@@ -340,12 +343,13 @@ export default async function seed() {
       reviews: [],
     },
     {
-      name: "giftify",
+      name: "Giftify",
+      slug: "giftify",
       description:
         "Es una página web para buscar gifs, utilizando la API de Giphy.",
       important: true,
       primary: true,
-      technologys: [
+      technologies: [
         "html",
         "sass",
         "typescript",
@@ -363,11 +367,12 @@ export default async function seed() {
     },
     {
       name: "Landing Page YPF ACA",
+      slug: "ypf",
       description:
         "Landing page desarrollada para una estación de servicio YPF, incluye una sección de registro de hotel, sección de menu y productos.",
       important: true,
       primary: false,
-      technologys: [
+      technologies: [
         "html",
         "sass",
         "typescript",
@@ -384,12 +389,13 @@ export default async function seed() {
       reviews: [],
     },
     {
-      name: "blog",
+      name: "Blog",
+      slug: "blog",
       description:
         "Este en mi blog personal, donde voy subiendo tecnologías que voy aprendiendo",
       important: true,
       primary: true,
-      technologys: [
+      technologies: [
         "html",
         "sass",
         "typescript",
@@ -399,7 +405,7 @@ export default async function seed() {
         "postgresSQL",
         "angular material",
       ],
-      // server_status: true,
+      server_status: true,
       client_status: true,
       url: "https://delidrinks.com.ar/",
       url_image:
@@ -408,11 +414,12 @@ export default async function seed() {
     },
     {
       name: "juego del ahorcado",
+      slug: "juego-ahorcado",
       description:
         "Es el clásico juego del ahorcado, este es un proyecto de Oracle Next Education.",
       important: true,
       primary: false,
-      technologys: ["html", "css", "javascript"],
+      technologies: ["html", "css", "javascript"],
       // server_status: true,
       client_status: true,
       url: "https://delidrinks.com.ar/",
@@ -422,11 +429,12 @@ export default async function seed() {
     },
     {
       name: "encriptador de texto",
+      slug: "encriptador-de-texto",
       description:
         "Es un simple encriptador y desencriptador de texto, este es un proyecto de Oracle Next Education",
       important: true,
       primary: false,
-      technologys: ["html", "css", "javascript"],
+      technologies: ["html", "css", "javascript"],
       // server_status: true,
       client_status: true,
       url: "https://delidrinks.com.ar/",

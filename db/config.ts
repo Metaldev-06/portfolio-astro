@@ -6,10 +6,11 @@ const Projects = defineTable({
   columns: {
     id: column.number({ primaryKey: true }),
     name: column.text(),
+    slug: column.text(),
     description: column.text(),
     important: column.boolean(),
     primary: column.boolean(),
-    technologys: column.json(),
+    technologies: column.json(),
     server_status: column.boolean({ optional: true }),
     client_status: column.boolean({ optional: true }),
     url: column.text(),

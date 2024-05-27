@@ -6,6 +6,8 @@ import Title from "../common/components/Title.astro";
 import Layout from "../layouts/Layout.astro";
 
 const projects = await db.select().from(Projects);
+
+console.log(projects);
 ---
 
 <Layout title="Metaldev - Web Developer Jr.">
@@ -14,8 +16,8 @@ const projects = await db.select().from(Projects);
 
     <article class="projects__card--container">
       {
-        projects.map(({ name, url_image }) => (
-          <ProjectCard name={name} img={url_image} />
+        projects.map(({ name, url_image, slug }) => (
+          <ProjectCard name={name} img={url_image} slug={slug} />
         ))
       }
     </article>
