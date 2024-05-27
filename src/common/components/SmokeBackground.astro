@@ -64,7 +64,7 @@
     scene.add(light);
 
     const loader = new THREE.TextureLoader();
-    loader.crossOrigin = "";
+    loader.crossOrigin = "*";
 
     loader.load("/img/smoke.webp", (texture) => {
       const smokeGeo = new THREE.PlaneGeometry(300, 300);
