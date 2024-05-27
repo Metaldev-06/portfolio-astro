@@ -137,6 +137,12 @@
   // Obtener el tema actual del almacenamiento local
   const currentTheme = localStorage.getItem("theme");
 
+  if (!currentTheme) {
+    localStorage.setItem("theme", "dark");
+    document.documentElement.setAttribute("data-theme", "dark");
+    themeToggle.checked = true;
+  }
+
   // Aplicar el tema en base al almacenamiento local (estado inicial)
   if (currentTheme) {
     document.documentElement.setAttribute("data-theme", currentTheme);
@@ -157,4 +163,7 @@
   // Agregar detectores de eventos
   themeToggle?.addEventListener("change", switchTheme);
   document.addEventListener("astro:after-swap", switchTheme);
+  console.log(currentTheme);
+
+  document.addEventListener("domContentLoaded", () => {});
 </script>
