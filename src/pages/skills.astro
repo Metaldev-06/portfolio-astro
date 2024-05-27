@@ -1,11 +1,11 @@
 ---
-import { db, Skills } from "astro:db";
+import { db, Skills as SkillsDb } from "astro:db";
 
 import Title from "../common/components/Title.astro";
 import Layout from "../layouts/Layout.astro";
 import Atropos from "../common/components/Atropos.astro";
 
-const skills = await db.select().from(Skills);
+const skills = await db.select().from(SkillsDb);
 
 const frontend = skills.filter((skill) => skill.stack === "frontend");
 const backend = skills.filter((skill) => skill.stack === "backend");

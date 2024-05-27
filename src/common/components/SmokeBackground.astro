@@ -119,7 +119,9 @@
       light.color.setHex(currentTheme.light);
 
       smokeParticles.forEach((p) => {
-        p.material.opacity = currentTheme.opacity;
+        if (p.material instanceof THREE.MeshLambertMaterial) {
+          p.material.opacity = currentTheme.opacity;
+        }
       });
     });
   };

@@ -284,7 +284,6 @@ export default async function seed() {
       url: "https://delidrinks.com.ar/",
       url_image:
         "https://res.cloudinary.com/du04fnqqz/image/upload/v1699565998/209shots_so_1_52a71d4f0b_6f91396d56.jpg",
-      reviews: [],
     },
     {
       name: "Delatinos - Ecommerce",
@@ -312,7 +311,6 @@ export default async function seed() {
       url: "https://delidrinks.com.ar/",
       url_image:
         "https://res.cloudinary.com/du04fnqqz/image/upload/v1699565998/300shots_so_1_747abe463a_f4d1a02ea4.jpg",
-      reviews: [],
     },
     {
       name: "Tango Viajes - Ecommerce",
@@ -340,7 +338,6 @@ export default async function seed() {
       url: "https://delidrinks.com.ar/",
       url_image:
         "https://res.cloudinary.com/du04fnqqz/image/upload/v1699565995/tango_viajes_38251e36e3_8559ed1835.jpg",
-      reviews: [],
     },
     {
       name: "Giftify",
@@ -363,7 +360,6 @@ export default async function seed() {
       url: "https://delidrinks.com.ar/",
       url_image:
         "https://res.cloudinary.com/du04fnqqz/image/upload/v1699566000/giftify_v2_eabe435ea6_d489929737.jpg",
-      reviews: [],
     },
     {
       name: "Landing Page YPF ACA",
@@ -386,7 +382,6 @@ export default async function seed() {
       url: "https://delidrinks.com.ar/",
       url_image:
         "https://res.cloudinary.com/dw24usdw9/image/upload/v1716689027/352shots_so_gpccj6.webp",
-      reviews: [],
     },
     {
       name: "Blog",
@@ -410,7 +405,6 @@ export default async function seed() {
       url: "https://delidrinks.com.ar/",
       url_image:
         "https://res.cloudinary.com/dw24usdw9/image/upload/v1716693608/211shots_so_wxjbqg.webp",
-      reviews: [],
     },
     {
       name: "juego del ahorcado",
@@ -425,7 +419,6 @@ export default async function seed() {
       url: "https://delidrinks.com.ar/",
       url_image:
         "https://res.cloudinary.com/du04fnqqz/image/upload/v1699565998/juego_ahorcado_715817aab2_76ed799ed5.jpg",
-      reviews: [],
     },
     {
       name: "encriptador de texto",
@@ -440,7 +433,6 @@ export default async function seed() {
       url: "https://delidrinks.com.ar/",
       url_image:
         "https://res.cloudinary.com/du04fnqqz/image/upload/v1699565997/encriptador_alura_622f020dd1_8993930b17.jpg",
-      reviews: [],
     },
   ]);
 }

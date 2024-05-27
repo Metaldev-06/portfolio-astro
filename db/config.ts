@@ -15,7 +15,6 @@ const Projects = defineTable({
     client_status: column.boolean({ optional: true }),
     url: column.text(),
     url_image: column.text(),
-    reviews: column.json(),
   },
 });
 

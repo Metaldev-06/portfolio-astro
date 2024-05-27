@@ -1,11 +1,11 @@
 ---
-import { db, Projects, eq } from "astro:db";
+import { db, eq, Projects as ProjectsDB } from "astro:db";
 import Title from "../../common/components/Title.astro";
 
 const projects = await db
   .select()
-  .from(Projects)
-  .where(eq(Projects.important, true));
+  .from(ProjectsDB)
+  .where(eq(ProjectsDB.important, true));
 ---
 
 <section class="project__section">
