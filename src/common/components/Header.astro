@@ -1,6 +1,7 @@
 ---
 import ButtonTheme from "./ButtonTheme.astro";
 import Logo from "./Logo.astro";
+import NavMobile from "./NavMobile.astro";
 
 const { pathname } = Astro.url;
 const normalizedPathName =
@@ -15,7 +16,7 @@ const normalizedPathName =
       <Logo />
     </picture>
 
-    <nav>
+    <nav class="nav__menu">
       <a href="/" class={normalizedPathName === "/" ? "active" : ""}>INICIO</a>
       <a
         href="/projects"
@@ -33,7 +34,13 @@ const normalizedPathName =
       > -->
     </nav>
 
-    <ButtonTheme />
+    <div class="button__container">
+      <ButtonTheme />
+    </div>
+
+    <div class="nav__mobile">
+      <NavMobile />
+    </div>
   </div>
 </header>
 
@@ -57,6 +64,7 @@ const normalizedPathName =
     justify-content: space-between;
     align-items: center;
     padding-inline: 0.5rem;
+    position: relative;
   }
 
   nav {
@@ -82,12 +90,26 @@ const normalizedPathName =
   .active {
     opacity: 1;
   }
+
+  .nav__mobile {
+    display: none;
+  }
+
+  @media (width < 570px) {
+    .button__container {
+      display: none;
+    }
+    .nav__menu {
+      display: none;
+    }
+    .nav__mobile {
+      display: block;
+    }
+  }
 </style>
 
 <script is:inline>
-  const $ = (selector) => document.querySelector(selector);
-
-  const header = $(".header__container");
+  const header = document.querySelector(".header__container");
 
   let isFixed = false;
 

@@ -111,4 +111,15 @@ const projects = await db
       display: none;
     }
   }
+
+  @media (width < 640px) {
+    .project__container {
+      display: flex;
+      flex-wrap: wrap;
+
+      .card {
+        height: 300px;
+      }
+    }
+  }
 </style>

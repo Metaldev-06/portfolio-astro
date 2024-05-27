@@ -1,0 +1,195 @@
+---
+import ButtonTheme from "./ButtonTheme.astro";
+
+const { pathname } = Astro.url;
+const normalizedPathName =
+  pathname.length > 1 && pathname.endsWith("/")
+    ? pathname.slice(0, -1)
+    : pathname;
+---
+
+<div class="hamburger">
+  <div class="_layer -top"></div>
+  <div class="_layer -mid"></div>
+  <div class="_layer -bottom"></div>
+</div>
+
+<nav class="menuppal">
+  <ul>
+    <li>
+      <a
+        class="nav__link"
+        href="/"
+        class={normalizedPathName === "/" ? "active" : ""}
+        onclick="closeMenu()">INICIO</a
+      >
+    </li>
+    <li>
+      <a
+        class="nav__link"
+        href="/projects"
+        class={normalizedPathName === "/projects" ? "active" : ""}
+        onclick="closeMenu()">PROYECTOS</a
+      >
+    </li>
+    <li>
+      <a
+        class="nav__link"
+        href="/skills"
+        class={normalizedPathName === "/skills" ? "active" : ""}
+        onclick="closeMenu()">HABILIDADES</a
+      >
+    </li>
+    <li>
+      <a
+        class="nav__link"
+        href="/education"
+        class={normalizedPathName === "/education" ? "active" : ""}
+        onclick="closeMenu()">EDUCACIÓN</a
+      >
+    </li>
+  </ul>
+  <div class="button__container">
+    <div class="theme__button">
+      <!-- <ButtonTheme /> -->
+    </div>
+  </div>
+</nav>
+
+<style>
+  .hamburger {
+    position: fixed;
+    background-color: transparent;
+    right: 1rem;
+    top: 0.5rem;
+    height: 30px;
+    width: 30px;
+    padding: 20px 20px;
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+    -webkit-transition: -webkit-transform 0.25s
+      cubic-bezier(0.05, 1.04, 0.72, 0.98);
+    transition: transform 0.25s cubic-bezier(0.05, 1.04, 0.72, 0.98);
+    z-index: 1002;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
+  .hamburger.is-active {
+    background-color: none;
+  }
+  ._layer {
+    background: var(--color-text);
+    margin-bottom: 4px;
+    border-radius: 2px;
+    width: 28px;
+    height: 4px;
+    opacity: 1;
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+    -webkit-transition: all 0.25s cubic-bezier(0.05, 1.04, 0.72, 0.98);
+    transition: all 0.25s cubic-bezier(0.05, 1.04, 0.72, 0.98);
+  }
+  .hamburger:hover .-top {
+    -webkit-transform: translateY(-100%);
+    -ms-transform: translateY(-100%);
+    transform: translateY(-100%);
+  }
+  .hamburger:hover .-bottom {
+    -webkit-transform: translateY(100%);
+    -ms-transform: translateY(100%);
+    transform: translateY(100%);
+  }
+  .hamburger.is-active .-top {
+    -webkit-transform: translateY(200%) rotate(45deg) !important;
+    -ms-transform: translateY(200%) rotate(45deg) !important;
+    transform: translateY(200%) rotate(45deg) !important;
+  }
+  .hamburger.is-active .-mid {
+    opacity: 0;
+  }
+  .hamburger.is-active .-bottom {
+    -webkit-transform: translateY(-200%) rotate(135deg) !important;
+    -ms-transform: translateY(-200%) rotate(135deg) !important;
+    transform: translateY(-200%) rotate(135deg) !important;
+  }
+
+  .menuppal.is_active {
+    transform: translate3d(0px, 0px, 0px);
+  }
+  .menuppal {
+    background-color: var(--color-bg);
+    bottom: 0;
+    height: 100%;
+    left: 0;
+    overflow-y: scroll;
+    position: fixed;
+    top: 0;
+    transform: translate3d(0px, -100%, 0px);
+    transition: transform 0.35s cubic-bezier(0.05, 1.04, 0.72, 0.98) 0s;
+    width: 100%;
+    z-index: 1001;
+  }
+  .menuppal ul {
+    margin: 0;
+    padding: 0;
+  }
+  .menuppal ul li {
+    list-style: none;
+    text-align: center;
+    font-family: Verdadna, Arial, Helvetica;
+    color: $nav-color-text;
+    font-size: 1.5rem;
+    line-height: 3em;
+    height: 3em;
+    color: #369;
+    text-transform: none;
+    font-weight: bold;
+  }
+  .menuppal ul li a {
+    text-decoration: none;
+    color: var(--color-text);
+  }
+  .menuppal ul li a:hover {
+    text-decoration: none;
+    color: #333;
+  }
+  .button__container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .theme__button {
+      width: 100px;
+    }
+  }
+</style>
+
+<script is:inline>
+  const $ = (selector) => document.querySelector(selector);
+  const $all = (selector) => document.querySelectorAll(selector);
+
+  const menu = $(".hamburger");
+  const navMenu = $(".menuppal");
+  const navLink = $all(".nav__link");
+
+  function toggleMenu(event) {
+    this.classList.toggle("is-active");
+    navMenu.classList.toggle("is_active");
+    event.preventDefault();
+  }
+
+  function closeMenu() {
+    menu.classList.remove("is-active");
+    navMenu.classList.remove("is_active");
+  }
+
+  //   navLink.forEach((link) => {
+  //     link.addEventListener("click", toggleMenu, false);
+  //   });
+
+  menu.addEventListener("click", toggleMenu, false);
+</script>

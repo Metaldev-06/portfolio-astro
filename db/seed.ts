@@ -290,7 +290,7 @@ export default async function seed() {
       description:
         "Proyecto realizado para NoCountry en conjunto de un gran equipo, la realización de este ecommerce para gente latina en el exterior",
       important: true,
-      primary: false,
+      primary: true,
       technologys: [
         "html",
         "scss",
@@ -344,7 +344,7 @@ export default async function seed() {
       description:
         "Es una página web para buscar gifs, utilizando la API de Giphy.",
       important: true,
-      primary: false,
+      primary: true,
       technologys: [
         "html",
         "sass",
@@ -384,34 +384,6 @@ export default async function seed() {
       reviews: [],
     },
     {
-      name: "juego del ahorcado",
-      description:
-        "Es el clásico juego del ahorcado, este es un proyecto de Oracle Next Education.",
-      important: true,
-      primary: true,
-      technologys: ["html", "css", "javascript"],
-      // server_status: true,
-      client_status: true,
-      url: "https://delidrinks.com.ar/",
-      url_image:
-        "https://res.cloudinary.com/du04fnqqz/image/upload/v1699565998/juego_ahorcado_715817aab2_76ed799ed5.jpg",
-      reviews: [],
-    },
-    {
-      name: "encriptador de texto",
-      description:
-        "Es un simple encriptador y desencriptador de texto, este es un proyecto de Oracle Next Education",
-      important: true,
-      primary: true,
-      technologys: ["html", "css", "javascript"],
-      // server_status: true,
-      client_status: true,
-      url: "https://delidrinks.com.ar/",
-      url_image:
-        "https://res.cloudinary.com/du04fnqqz/image/upload/v1699565997/encriptador_alura_622f020dd1_8993930b17.jpg",
-      reviews: [],
-    },
-    {
       name: "blog",
       description:
         "Este en mi blog personal, donde voy subiendo tecnologías que voy aprendiendo",
@@ -432,6 +404,34 @@ export default async function seed() {
       url: "https://delidrinks.com.ar/",
       url_image:
         "https://res.cloudinary.com/dw24usdw9/image/upload/v1716693608/211shots_so_wxjbqg.webp",
+      reviews: [],
+    },
+    {
+      name: "juego del ahorcado",
+      description:
+        "Es el clásico juego del ahorcado, este es un proyecto de Oracle Next Education.",
+      important: true,
+      primary: false,
+      technologys: ["html", "css", "javascript"],
+      // server_status: true,
+      client_status: true,
+      url: "https://delidrinks.com.ar/",
+      url_image:
+        "https://res.cloudinary.com/du04fnqqz/image/upload/v1699565998/juego_ahorcado_715817aab2_76ed799ed5.jpg",
+      reviews: [],
+    },
+    {
+      name: "encriptador de texto",
+      description:
+        "Es un simple encriptador y desencriptador de texto, este es un proyecto de Oracle Next Education",
+      important: true,
+      primary: false,
+      technologys: ["html", "css", "javascript"],
+      // server_status: true,
+      client_status: true,
+      url: "https://delidrinks.com.ar/",
+      url_image:
+        "https://res.cloudinary.com/du04fnqqz/image/upload/v1699565997/encriptador_alura_622f020dd1_8993930b17.jpg",
       reviews: [],
     },
   ]);

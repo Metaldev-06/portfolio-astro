@@ -53,16 +53,11 @@ const { src, name, className } = Astro.props;
 <script>
   import Atropos from "atropos";
 
-  console.log("Holaaaaa1");
-
   class AstroGreet extends HTMLElement {
     constructor() {
       super();
 
-      console.log("Holaaaaaaa2");
-
       document.addEventListener("astro:page-load", () => {
-        console.log("Holaaaaa3");
         const myAtropos = Atropos({
           el: `.${this.dataset.className}`,
           shadow: true,
