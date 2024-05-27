@@ -61,7 +61,6 @@ body {
   --hover-nav-color: #000000;
   --card-article-color: #ddd;
 
-  /* --background-hero: url("/img/concrete.png"); */
   --background-hero: url("/img/concrete-dark.png");
 
   --hero-text-color: #909090;
@@ -78,7 +77,6 @@ body {
   --hover-nav-color: #fff;
   --card-article-color: #202020;
 
-  /* --background-hero: url("/img/concrete-dark.png"); */
   --background-hero: url("/img/concrete.png");
   --hero-text-color: #434343;
 }
