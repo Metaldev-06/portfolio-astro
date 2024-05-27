@@ -7,6 +7,7 @@ import "../common/styles/styles.css";
 import { seoAstro } from "../common/seo/seo.ts";
 import Header from "../common/components/Header.astro";
 import Footer from "../common/components/Footer.astro";
+import SmokeBackground from "../common/components/SmokeBackground.astro";
 
 // interface Props {
 //   title: string;
@@ -104,6 +105,8 @@ import Footer from "../common/components/Footer.astro";
     <ViewTransitions />
   </head>
   <body>
+    <SmokeBackground />
+    <!-- <div class="background"></div> -->
     <Header />
     <slot />
     <Footer />
@@ -113,7 +116,33 @@ import Footer from "../common/components/Footer.astro";
         display: flex;
         flex-direction: column;
         justify-content: space-between;
+        position: relative;
+        overflow-x: hidden;
       }
+
+      .background {
+        width: 100%;
+        height: 100%;
+        background: var(--background-hero);
+        /* background-size: cover; */
+        background-position: center;
+        background-repeat: repeat;
+        position: absolute;
+        z-index: -1;
+        opacity: 0.1;
+      }
+
+      /* @media (prefers-color-scheme: light) {
+        .background {
+          opacity: 0.3;
+        }
+      }
+
+      @media (prefers-color-scheme: dark) {
+        .background {
+          opacity: 0.3;
+        }
+      } */
     </style>
   </body>
 </html>
