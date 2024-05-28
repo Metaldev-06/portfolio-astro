@@ -10,7 +10,7 @@ import Skill8 from "@common/components/Skill8.astro";
 
 <section class="hero__section">
   <article class="images__container">
-    <picture>
+    <picture class="logo__container">
       <img src="/img/logo_hero.svg" alt="Logo Metaldev" width="267" />
       <!-- <LogoHero /> -->
     </picture>
@@ -47,7 +47,9 @@ import Skill8 from "@common/components/Skill8.astro";
       <div class="skill__card">
         <Skill8 />
       </div>
-      <img src="/img/skills/9.svg" alt="mongo logo" width="50" />
+      <div class="skill__card">
+        <img src="/img/skills/9.svg" alt="mongo logo" width="50" />
+      </div>
     </div>
   </article>
 
@@ -85,7 +87,7 @@ import Skill8 from "@common/components/Skill8.astro";
 <style>
   .hero__section {
     width: 95%;
-    height: 100vh;
+    height: 100dvh;
     margin: 0 auto;
     display: flex;
     justify-content: center;
@@ -103,6 +105,14 @@ import Skill8 from "@common/components/Skill8.astro";
     justify-content: center;
     gap: 1rem;
     aspect-ratio: 16 / 9;
+
+    .logo__container {
+      width: clamp(150px, 30vw, 267px);
+
+      img {
+        width: 100%;
+      }
+    }
   }
 
   .skills__container {
@@ -114,8 +124,12 @@ import Skill8 from "@common/components/Skill8.astro";
     align-items: center;
 
     .skill__card {
-      width: 50px;
-      height: 50px;
+      width: clamp(30px, 5vw, 50px);
+      height: clamp(30px, 5vw, 50px);
+
+      img {
+        width: 100%;
+      }
     }
   }
 
