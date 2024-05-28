@@ -64,7 +64,7 @@ const normalizedPathName =
     top: 0.5rem;
     height: 30px;
     width: 30px;
-    padding: 20px 20px;
+    /* padding: 20px 20px; */
     -webkit-transform: translate3d(0, 0, 0);
     transform: translate3d(0, 0, 0);
     -webkit-transition: -webkit-transform 0.25s
@@ -76,6 +76,12 @@ const normalizedPathName =
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
+  }
+
+  @media (width <= 570px) {
+    .hamburger {
+      top: 1rem;
+    }
   }
   .hamburger.is-active {
     background-color: none;

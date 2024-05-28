@@ -12,7 +12,7 @@ const normalizedPathName =
 
 <header class="header__container" transition:persist>
   <div class="header">
-    <picture>
+    <picture class="logo__container">
       <Logo />
     </picture>
 
@@ -53,6 +53,24 @@ const normalizedPathName =
     left: 0;
     z-index: 1000;
     transition: all 0.3s ease-in-out;
+  }
+
+  .logo__container {
+    width: 50px;
+  }
+
+  @media (width < 570px) {
+    .header__container {
+      height: 50px;
+    }
+    .logo__container {
+      width: 25px;
+    }
+  }
+  @media (width <= 570px) {
+    .logo__container {
+      width: 30px;
+    }
   }
 
   .header {

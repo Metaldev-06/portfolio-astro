@@ -7,7 +7,7 @@ import { Icon } from "astro-icon/components";
 
   <article class="aboutMe__container">
     <div class="aboutMe__info">
-      <picture>
+      <picture class="me__image">
         <img src="/img/me-image.png" alt="Foto de Perfil" width="300" />
       </picture>
 
@@ -87,9 +87,14 @@ import { Icon } from "astro-icon/components";
     align-items: center;
     gap: 1rem;
     padding: 2rem;
-    & > picture > img {
-      border-radius: 50%;
-      aspect-ratio: 1 / 1;
+
+    .me__image {
+      width: clamp(150px, 30vw, 300px);
+      img {
+        width: 100%;
+        border-radius: 50%;
+        aspect-ratio: 1 / 1;
+      }
     }
 
     & > .text__container {
