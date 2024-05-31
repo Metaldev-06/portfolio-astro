@@ -1,10 +1,11 @@
 import { defineConfig } from "astro/config";
 import icon from "astro-icon";
 import db from "@astrojs/db";
+import vercel from "@astrojs/vercel/static";
 
 // https://astro.build/config
 export default defineConfig({
   integrations: [icon(), db()],
-  output: "server",
-  adapter: "@astrojs/vercel",
+  output: "static",
+  adapter: vercel(),
 });
