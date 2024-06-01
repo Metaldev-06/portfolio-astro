@@ -1,4 +1,4 @@
-import { column, defineDb, defineTable } from "astro:db";
+import { NOW, column, defineDb, defineTable } from "astro:db";
 
 // https://astro.build/db/config
 
@@ -36,6 +36,18 @@ const Certifications = defineTable({
   },
 });
 
+const Posts = defineTable({
+  columns: {
+    id: column.number({ primaryKey: true }),
+    title: column.text({ optional: false }),
+    description: column.text({ optional: false }),
+    url_image: column.text({ optional: false }),
+    date: column.date({ default: NOW }),
+    updated_at: column.date({ optional: true }),
+    body: column.text({ optional: false }),
+  },
+});
+
 export default defineDb({
-  tables: { Projects, Skills, Certifications },
+  tables: { Projects, Skills, Certifications, Posts },
 });

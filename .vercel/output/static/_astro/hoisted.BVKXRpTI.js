@@ -1,1 +1,0 @@
-import{A as e}from"./atropos.DZR9lnpr.js";import"./hoisted.C5X8UGSx.js";class t extends HTMLElement{constructor(){super(),document.addEventListener("astro:page-load",()=>{e({el:`.${this.dataset.className}`,shadow:!0,highlight:!0})})}}customElements.define("astro-greet-2",t);

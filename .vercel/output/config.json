@@ -12,12 +12,9 @@
 			"handle": "filesystem"
 		},
 		{
-			"src": "^\\/_image$",
-			"dest": "_render"
-		},
-		{
-			"src": "^\\/project\\/([^/]+?)\\/?$",
-			"dest": "_render"
+			"src": "/.*",
+			"dest": "/404.html",
+			"status": 404
 		}
 	]
 }

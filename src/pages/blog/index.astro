@@ -1,0 +1,26 @@
+---
+import HeroBlog from "@components/blog/home/HeroBlog.astro";
+import PostContainer from "@components/blog/home/PostContainer.astro";
+import BlogLayout from "@layouts/BlogLayout.astro";
+---
+
+<BlogLayout title="Metaldev - Web Developer Jr.">
+  <HeroBlog />
+
+  <section class="posts__section">
+    <h2>Últimos Posts</h2>
+
+    <PostContainer />
+  </section>
+</BlogLayout>
+
+<style>
+  .posts__section {
+    width: var(--full-width);
+    max-width: var(--max-width);
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+</style>

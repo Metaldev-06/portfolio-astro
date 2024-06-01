@@ -11,7 +11,11 @@
   --slider-input-bg: #8758ff;
   --color-white: #fff;
   --color-complementary: #8758ff;
+  --color-tertiary: #d349c9;
   --box-shadow: rgba(66, 66, 66, 0.2);
+
+  --color-blog-bg: #1b1f1f;
+  --color-header-blog-bg: #212529;
 
   --max-width: 1400px;
   --full-width: 95%;
@@ -40,7 +44,6 @@ body::-webkit-scrollbar-thumb {
 }
 
 body {
-  background-color: var(--color-bg);
   color: var(--color-text);
   font-family: "Inter", system-ui, sans-serif;
 }

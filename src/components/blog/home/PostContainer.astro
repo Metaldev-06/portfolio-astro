@@ -1,0 +1,28 @@
+---
+import CardPost from "@common/components/CardPost.astro";
+const postList = await Astro.glob("../../../pages/blog/post/*.md");
+---
+
+<article class="post__container">
+  {
+    postList.map((post) => (
+      <CardPost
+        tags={post.frontmatter.tags}
+        title={post.frontmatter.title}
+        description={post.frontmatter.description}
+        img={post.frontmatter.img}
+        date={post.frontmatter.date.slice(0, 10)}
+        slug={post.url}
+      />
+    ))
+  }
+</article>
+
+<style>
+  .post__container {
+    width: 100%;
+    display: grid;
+    gap: 2rem;
+    grid-template-columns: repeat(auto-fill, minmax(325px, 1fr));
+  }
+</style>
