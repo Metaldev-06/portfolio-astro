@@ -1,6 +1,6 @@
 ---
 import Logo from "./Logo.astro";
-import Searcher from "./Searcher.astro";
+import Searcher from "./Searcher.svelte";
 ---
 
 <header class="header__container">
@@ -13,11 +13,11 @@ import Searcher from "./Searcher.astro";
 
     <nav class="nav__menu">
       <a href="/blog" class="nav__item">Inicio</a>
-      <a href="/blog/courses" class="nav__item">Curso</a>
+      <!-- <a href="/blog/courses" class="nav__item">Curso</a> -->
       <a href="/" class="nav__item">Portfolio</a>
     </nav>
 
-    <Searcher placeholder="Buscar..." />
+    <Searcher placeholder="Buscar..." client:load />
   </div>
 </header>
 
@@ -58,7 +58,6 @@ import Searcher from "./Searcher.astro";
 
           &:hover {
             opacity: 1;
-            font-weight: bold;
           }
         }
       }

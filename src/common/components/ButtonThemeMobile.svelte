@@ -1,0 +1,172 @@
+<script>
+  export let showButton = false;
+
+  // Obtener el input de cambio de tema
+  const themeToggle = document.querySelector(
+    '.theme-switch input[type="checkbox"]',
+  );
+
+  // Obtener el tema actual del almacenamiento local
+  const currentTheme = localStorage.getItem("theme");
+
+  if (!currentTheme) {
+    localStorage.setItem("theme", "dark");
+    document.documentElement.setAttribute("data-theme", "dark");
+    themeToggle.checked = true;
+  }
+
+  // Aplicar el tema en base al almacenamiento local (estado inicial)
+  if (currentTheme) {
+    document.documentElement.setAttribute("data-theme", currentTheme);
+    if (currentTheme === "dark") {
+      themeToggle.checked = true;
+    }
+  }
+
+  // Función para cambiar el tema
+  function switchTheme() {
+    const newTheme = themeToggle.checked ? "dark" : "light";
+    document.documentElement.setAttribute("data-theme", newTheme);
+    localStorage.setItem("theme", newTheme);
+
+    window.dispatchEvent(new Event("themeChanged"));
+  }
+
+  // Agregar detectores de eventos
+  themeToggle?.addEventListener("change", switchTheme);
+  document.addEventListener("astro:after-swap", switchTheme);
+
+  document.addEventListener("domContentLoaded", () => {});
+</script>
+
+{#if showButton}
+  <div class="theme-switch-wrapper">
+    <label class="theme-switch" for="checkbox">
+      <input type="checkbox" id="checkbox" />
+      <div class="slider">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="16"
+          height="16"
+          viewBox="0 0 24 24"
+          fill="#FCD53F"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          class="feather feather-sun"
+        >
+          <circle cx="12" cy="12" r="5"></circle>
+          <line x1="12" y1="1" x2="12" y2="3"></line>
+          <line x1="12" y1="21" x2="12" y2="23"></line>
+          <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+          <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+          <line x1="1" y1="12" x2="3" y2="12"></line>
+          <line x1="21" y1="12" x2="23" y2="12"></line>
+          <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+          <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+        </svg>
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="16"
+          height="16"
+          viewBox="0 0 24 24"
+          fill="#FCD53F"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          class="feather feather-moon"
+        >
+          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+        </svg>
+      </div>
+    </label>
+  </div>
+{/if}
+
+<style>
+  .theme-switch-wrapper {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    user-select: none;
+  }
+
+  .theme-switch {
+    display: inline-block;
+    height: 34px;
+    position: relative;
+    width: 60px;
+  }
+
+  .theme-switch input {
+    display: none;
+  }
+
+  .slider {
+    background-color: var(--slider-bg);
+    bottom: 0;
+    cursor: pointer;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    transition: 0.4s;
+    border-radius: 34px;
+    border: 1px solid var(--color-bg);
+  }
+
+  .slider:before {
+    background-color: var(--slider-bg-before);
+    bottom: 4px;
+    content: "";
+    height: 26px;
+    left: 4px;
+    position: absolute;
+    transition: 0.4s;
+    width: 26px;
+    border-radius: 50%;
+  }
+
+  input:checked + .slider {
+    background-color: var(--slider-input-bg);
+  }
+
+  input:checked + .slider:before {
+    transform: translateX(26px);
+  }
+
+  .slider svg {
+    color: #222;
+    position: absolute;
+    transition:
+      opacity 0.2s ease 0s,
+      transform 0.35s ease 0s;
+    pointer-events: none;
+  }
+
+  .feather-moon {
+    opacity: 0;
+    left: 9px;
+    bottom: 9px;
+    transform: translateX(4px);
+  }
+
+  .feather-sun {
+    opacity: 1;
+    right: 10px;
+    bottom: 9px;
+    transform: translateX(0px);
+  }
+
+  input:checked + .slider .feather-moon {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  input:checked + .slider .feather-sun {
+    opacity: 0;
+    transform: translateX(-4px);
+  }
+</style>

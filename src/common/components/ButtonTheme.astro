@@ -131,7 +131,7 @@
 <script is:inline>
   // Obtener el input de cambio de tema
   const themeToggle = document.querySelector(
-    '.theme-switch input[type="checkbox"]'
+    '.theme-switch input[type="checkbox"]',
   );
 
   // Obtener el tema actual del almacenamiento local
@@ -163,7 +163,4 @@
   // Agregar detectores de eventos
   themeToggle?.addEventListener("change", switchTheme);
   document.addEventListener("astro:after-swap", switchTheme);
-  console.log(currentTheme);
-
-  document.addEventListener("domContentLoaded", () => {});
 </script>

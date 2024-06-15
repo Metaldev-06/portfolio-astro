@@ -1,12 +1,14 @@
 import { defineConfig } from "astro/config";
 import icon from "astro-icon";
 import db from "@astrojs/db";
-import vercel from "@astrojs/vercel/static";
+import vercel from "@astrojs/vercel/serverless";
+
+import svelte from "@astrojs/svelte";
 
 // https://astro.build/config
 export default defineConfig({
-  integrations: [icon(), db()],
-  output: "static",
+  integrations: [icon(), db(), svelte()],
+  output: "server",
   adapter: vercel(),
   // shikiConfig: {
   //   // Escoge entre los temas integrados de Shiki (o agrega los tuyos propios)

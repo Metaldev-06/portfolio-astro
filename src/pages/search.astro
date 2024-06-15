@@ -1,0 +1,33 @@
+---
+import BlogLayout from "@layouts/BlogLayout.astro";
+import PostContainer from "@components/blog/home/PostContainer.astro";
+import MessageResults from "@common/components/MessageResults.svelte";
+
+const queryParam = Astro.url.searchParams.get("q") || "";
+
+const posts = await Astro.glob("../pages/blog/post/*.md");
+const postList = posts.filter((post) => {
+  const title = post.frontmatter.title.toLowerCase();
+  const query = queryParam.toLowerCase();
+  return title.includes(query);
+});
+---
+
+<BlogLayout title="Blog - Metaldev">
+  <container class="search__container">
+    <MessageResults postList={postList} input={queryParam} client:load />
+
+    <PostContainer postList={postList} />
+  </container>
+</BlogLayout>
+
+<style>
+  .search__container {
+    width: var(--full-width);
+    max-width: var(--max-width);
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+</style>

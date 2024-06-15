@@ -1,11 +1,17 @@
 ---
 import CardPost from "@common/components/CardPost.astro";
-const postList = await Astro.glob("../../../pages/blog/post/*.md");
+// const postList = await Astro.glob("../../../pages/blog/post/*.md");
+
+interface Props {
+  postList: any[];
+}
+
+const { postList } = Astro.props;
 ---
 
 <article class="post__container">
   {
-    postList.map((post) => (
+    postList?.map((post) => (
       <CardPost
         tags={post.frontmatter.tags}
         title={post.frontmatter.title}

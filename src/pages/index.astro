@@ -3,9 +3,10 @@ import AboutMe from "@components/home/AboutMe.astro";
 import Hero from "@components/home/Hero.astro";
 import Projects from "@components/home/Projects.astro";
 import Layout from "@layouts/Layout.astro";
+import { seoAstro } from "@common/seo/seo";
 ---
 
-<Layout title="Metaldev - Web Developer Jr.">
+<Layout title={seoAstro.title}>
   <main>
     <Hero />
     <AboutMe />

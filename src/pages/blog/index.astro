@@ -2,15 +2,17 @@
 import HeroBlog from "@components/blog/home/HeroBlog.astro";
 import PostContainer from "@components/blog/home/PostContainer.astro";
 import BlogLayout from "@layouts/BlogLayout.astro";
+
+const posts = await Astro.glob("../blog/post/*.md");
 ---
 
-<BlogLayout title="Metaldev - Web Developer Jr.">
+<BlogLayout title="Blog - Metaldev">
   <HeroBlog />
 
   <section class="posts__section">
     <h2>Últimos Posts</h2>
 
-    <PostContainer />
+    <PostContainer postList={posts} />
   </section>
 </BlogLayout>
 
